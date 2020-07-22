@@ -340,6 +340,10 @@ class ProfileScreen extends Component{
         // console.log(this.state.colleges);
         // console.log(this.state);
         let leftover = 9 - this.state.colleges.length;
+        for(var i = 0; i < this.state.colleges.length; i++){
+          this.state.textStyles[i] = styles.categoryContent;
+          this.state.weatherStyles[i] = styles.weatherFont;
+        }
         for(var i  = 8 ; i >= this.state.colleges.length; i--){
           this.state.textStyles[i] = {height : 0, width : 0};
           this.state.weatherStyles[i] = {height : 0, width : 0};
@@ -429,6 +433,11 @@ class ProfileScreen extends Component{
           loadingImageView2 : {marginBottom: 35, flex: 1,marginTop: 50, alignItems: 'center'}
 
         });
+
+        for(var i = 0; i < this.state.colleges.length; i++){
+          this.state.textStyles[i] = styles.categoryContent;
+          this.state.weatherStyles[i] = styles.weatherFont;
+        }
 
         for(var i = 0; i < this.state.colleges; i++){
           console.log(i);
@@ -976,6 +985,9 @@ class ProfileScreen extends Component{
         // console.log(this.state.collegesRender);
         if(this.state.text != '0'){
           this.setState({isLoggedIn : true});
+        } 
+        else{
+          this.setState({isLoggedIn : false});
         }
         this.setState({currentlyLoading : false});      
 
