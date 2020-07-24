@@ -299,7 +299,7 @@ class DevicePickerScreen extends Component{
         }, {
           value: 'Heavy video editing',
         }, {
-          value: 'Just media Consumption',
+          value: 'Just Media Consumption',
         }];
 
       let ques7 = [{

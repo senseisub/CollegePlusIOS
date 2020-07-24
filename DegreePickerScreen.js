@@ -31,19 +31,19 @@ let buttonStyle = {maxWidth: screenWidth * .4, backgroundColor: '#0099cc', borde
 const mainColors = ['tomato', '#0099cc'];
 
 let questions1 = [
-  {value: "I find studying individuals backgrounds and gender roles interesting", },
- { value: "I enjoy studying the way individuals comunicate their ideas with others", },
+  {value: "I find studying individual's backgrounds and gender roles interesting", },
+ { value: "I enjoy studying the way individuals communicate their ideas with others", },
  { value: "I could spend hours behind a computer exploring how tech works", },
  { value: "I enjoy teaching others things I have learned" },
- { value: "I enjoy reading about public policy.", },
- { value: "I enjoy learning about the ecocomy and how it works", },
- { value: "I am really interested in any type of history." }];
+ { value: "I enjoy reading about public policy", },
+ { value: "I enjoy learning about the economy and how it works", },
+ { value: "I am really interested in any type of history" }];
 
 let questions2 = [{value: "I enjoy using math and science to build things"},
-               {value: "I value using evidience and logic to support an argument"},
-               {value: "I appreciate literature and read & analyze text for fun"},
-               {value: "I am interested in studying live organisms and how they work"},
-               {value: "I like finding different ways to make money."},
+               {value: "I value using evidence and logic to support an argument"},
+               {value: "I appreciate literature and read/analyze text for fun"},
+               {value: "I am interested in studying living organisms and how they work"},
+               {value: "I like finding different ways to make money"},
                {value: "I take pride in the fact that I like taking care of people"}];
 
 let questions3 = [{value: "An independent, open-minded, and critical thinker."},
@@ -54,29 +54,29 @@ let questions3 = [{value: "An independent, open-minded, and critical thinker."},
            {value: "Pretty good at understanding how money works and how it travels."},
            {value: "Really good at piecing together historical events."}];
 
-let questions4 = [{value: "Good at math and science and interested in working with people. "},
+let questions4 = [{value: "Good at math and science and interested in working with people."},
                {value: "Fascinated by the relationship between law and society."}, 
                {value: "A person who loves to read different types of texts and who enjoys analyzing literary pieces."}, 
                {value : "A nature lover. I love animals and plants and enjoy learning why life exists and behaves the way it does."},
                {value: "Good at selling things and have a knack for getting money."}, 
-               {value : "Good at knowing how to take care of injuries or sicknesses"}];
+               {value : "Good at knowing how to take care of injuries or sicknesses."}];
 
 let questions5 = [{value: "Anthropology"}, 
                  {value: "Media Criticism"}, 
                  {value: "A independent project where I create a program"}, 
                  {value: "A semester taught teaching kids"},
-                 {value: "Shadowing a politician and learning politics."}, 
+                 {value: "Shadowing a politician and learning politics"}, 
                  {value: "Economics 101: The Stock Market"}, 
                  {value: "US History"}];
 
 let questions6 = [{value: "Intro to Engineering"},
  {value: "Legal Research and Writing"},
- {value: "British and American literature"}, 
+ {value: "British and American Literature"}, 
  {value: "Plant Anatomy"},
  {value: "Microeconomics"}, 
  {value: "Human anatomy"}];
 
-let questions7 = [{value: "When individuals are not interested in others culture"},
+let questions7 = [{value: "When individuals are not interested in other's culture"},
  {value: "When people are bad communicators"},
  {value: "When I don't understand how a piece of software works"},
  {value: "When others are not willing to help others with coursework"},
@@ -84,11 +84,11 @@ let questions7 = [{value: "When individuals are not interested in others culture
  {value: "When people don't understand or try to understand how money works"},
  {value: "When people talk about past events but actually have no idea what happened"}];
 
-let questions8 = [{value: "When people don't put effort into problemsolving"},
+let questions8 = [{value: "When people don't put effort into problem-solving"},
  {value: "When somebody cannot support their argument"},
- {value: "Bad grammar. Enough said."},
+ {value: "Bad grammar. Enough said"},
  {value: "Not being outside enough"},
- {value: "When people complain about not having money without thinking of ways to make it."},
+ {value: "When people complain about not having money without thinking of ways to make it"},
  {value: "When people don't know how to take care of their health."}];
 
 let questions9 = [{value: "Anthropologist"},
@@ -135,7 +135,18 @@ class DegreePickerScreen extends Component{
       clickedin : false,
       username : "",
       password : "s",
-      isLoggedIn : false
+      isLoggedIn : false,
+      answer1 : questions1[0].value,
+      answer2 : questions2[0].value,
+      answer3 : questions3[0].value,
+      answer4 : questions4[0].value,
+      answer5 : questions5[0].value,
+      answer6 : questions6[0].value,
+      answer7 : questions7[0].value,
+      answer8 : questions8[0].value,
+      answer9 : questions9[0].value,
+      answer10 : questions10[0].value,
+
     };
   }
   // let list1 = [this.state.ethnic, this.state.engineering, this.state.communication, this.state.legal, this.state.english, this.state.biological, this.state.computer, this.state.education, this.state.political, this.state.business, this.state.economics, this.state.nursing, this.state.finance, this.state.history],
@@ -174,7 +185,7 @@ class DegreePickerScreen extends Component{
         </Text>
         <Text style = {{maxWidth: 350, alignItems: 'center', textAlign: 'center'}}>
           <Text style = {{color: 'white', fontSize: 18, textAlign: 'center', maxWidth: 375, fontFamily: 'Montserrat-Medium', lineHeight : 26}}>
-            Don't know what major you want to pursure or what you want to study?{'\n'} </Text>
+            Don't know what major you want to pursue or what you want to study?{'\n'} </Text>
             <Text style = {{color: 'white', fontSize: 18, textAlign: 'center', maxWidth: 375, fontWeight: 'bold'}}> DegreePicker</Text>
             <Text style = {{color: 'white', fontSize: 18, textAlign: 'center', maxWidth: 375,fontFamily: 'Montserrat-Medium'}}> is a CollegePlus feature to help you figure out what general major to study. The results are general majors to study that you can research for more specific majors or specializations{'\n'}
           </Text>
@@ -182,31 +193,34 @@ class DegreePickerScreen extends Component{
       </View>
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> Select the statement that you identify the most with </Text>
-        <Dropdown label='Ex. I am a student'
+        <Dropdown label=''
         // value = {hbcu[0].value}
+        value = {questions1[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => this.question1function(value)}
+        onChangeText = {(value) => {this.question1function(value); this.setState({answer1 : value})}}
         data={questions1}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10, fontFamily : "Montserrat-Medium"}}
         baseColor = "#000000"
         dropdownOffset = {{top: 16}}
         pickerStyle = {{borderBottomColor: 'transparent', fontFamily : "Montserrat-Medium"}}
-        inputContainerStyle={{ borderBottomWidth: 0, minWidth: screenWidth * .8, maxWidth: screenWidth * .9, fontFamily : "Montserrat-Medium"}}
+        inputContainerStyle={{ borderBottomWidth: 0, minWidth: screenWidth * .8, maxWidth: screenWidth * .9, fontFamily : "Montserrat-Medium", overflow : "scroll"}}
         labelFontSize={0}
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
         // labelTextStyle={{fontFamily : "Montserrat-Medium"}}
         // titleTextStyle={{fontFamily : "Montserrat-Medium"}}
         // affixTextStyle={{fontFamily : "Montserrat-Medium"}}
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer1}</Text>
       </View>
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> Select the statement that you identify the most with </Text> 
-        <Dropdown label='Ex. I am in school'
+        <Dropdown label=''
         // value = {allWomens[0].value}
+        value = {questions2[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => this.question2function(value)}
+        onChangeText = {(value) => {this.question2function(value); this.setState({answer2 : value})}}
         data={questions2}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = "#000"
@@ -217,14 +231,16 @@ class DegreePickerScreen extends Component{
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
 
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer2}</Text>
       </View>
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> I feel like I am ... </Text>
-        <Dropdown label='Ex. Studying too hard'
+        <Dropdown label=''
         // value = {universitySize[1].value}
+        value = {questions3[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => this.question3function(value)}
+        onChangeText = {(value) => {this.question3function(value); this.setState({answer3 : value})}}
         data={questions3}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = "#000"
@@ -235,14 +251,16 @@ class DegreePickerScreen extends Component{
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
 
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer3}</Text>
       </View>
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> I feel like I am ... </Text>
-        <Dropdown label='Ex. the best student I can be'
+        <Dropdown label=''
         // value = {householdIncome[1].value}
+        value = {questions4[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => {this.question4function(value)}}
+        onChangeText = {(value) => {this.question4function(value); this.setState({answer4 : value})}}
         data={questions4}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = '#000'
@@ -253,14 +271,16 @@ class DegreePickerScreen extends Component{
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
 
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer4}</Text>
       </View>
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> Select a course that interests you </Text>
-        <Dropdown label='Ex. Calculus 1300'
+        <Dropdown label=''
         // value = {householdIncome[1].value}
+        value = {questions5[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => {this.question5function(value)}}
+        onChangeText = {(value) => {this.question5function(value); this.setState({answer5 : value})}}
         data={questions5}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = '#000'
@@ -271,14 +291,16 @@ class DegreePickerScreen extends Component{
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
 
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer5}</Text>
       </View> 
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> Select a course that interests you </Text>
-        <Dropdown label='Ex. English 1300'
+        <Dropdown label=''
         // value = {householdIncome[1].value}
+        value = {questions6[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => {this.question6function(value)}}
+        onChangeText = {(value) => {this.question6function(value); this.setState({answer6 : value})}}
         data={questions6}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = '#000'
@@ -289,14 +311,16 @@ class DegreePickerScreen extends Component{
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
 
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer6}</Text>
       </View> 
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> What can you absolutely not stand ? </Text>
-        <Dropdown label='Ex. Chalk on a chalkboard'
+        <Dropdown label=''
         // value = {householdIncome[1].value}
+        value = {questions7[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => {this.question7function(value)}}
+        onChangeText = {(value) => {this.question7function(value); this.setState({answer7 : value})}}
         data={questions7}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = '#000'
@@ -304,17 +328,19 @@ class DegreePickerScreen extends Component{
         pickerStyle = {{borderBottomColor: 'transparent'}}
         inputContainerStyle={{ borderBottomWidth: 0, minWidth: screenWidth * .8, maxWidth: screenWidth * .9 }}
         labelFontSize={0}
-        itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
-
+        itemTextStyle = {{ fontFamily: 'Montserrat-Medium', overflow : "scroll"}}
+        
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer7}</Text>
       </View> 
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> What can you absolutely not stand? </Text>
-        <Dropdown label='Ex. Old Technology'
+        <Dropdown label=''
         // value = {householdIncome[1].value}
+        value = {questions8[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => {this.question8function(value)}}
+        onChangeText = {(value) => {this.question8function(value); this.setState({answer8 : value})}}
         data={questions8}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = '#000'
@@ -325,14 +351,16 @@ class DegreePickerScreen extends Component{
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
 
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer8}</Text>
       </View>
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> Which career sounds the best to you? </Text>
-        <Dropdown label='Ex. Lion Tamer'
+        <Dropdown label=''
         // value = {householdIncome[1].value}
+        value = {questions9[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => {this.question9function(value)}}
+        onChangeText = {(value) => {this.question9function(value); this.setState({answer9 : value})}}
         data={questions9}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = '#000'
@@ -343,14 +371,16 @@ class DegreePickerScreen extends Component{
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
 
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer9}</Text>
       </View>
       <View style = {styles.dropDownView}>
         <Text style ={styles.TextLabel}> Which career sounds the best to you? </Text>
-        <Dropdown label='Ex. Chicken Herder'
+        <Dropdown label=''
         // value = {householdIncome[1].value}
+        value = {questions10[0].value}
         ref = {this.smallRef}
         // value={this.state.text}
-        onChangeText = {(value) => {this.question10function(value)}}
+        onChangeText = {(value) => {this.question10function(value); this.setState({answer10 : value})}}
         data={questions10}
         containerStyle = {{backgroundColor: mainColors[Math.floor(Math.random() * 2)], borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, minWidth: screenWidth * .9, paddingLeft: 10}}
         baseColor = '#000'
@@ -361,6 +391,7 @@ class DegreePickerScreen extends Component{
         itemTextStyle = {{ fontFamily: 'Montserrat-Medium'}}
 
         />
+        <Text style = {{width  : screenWidth * .8, color : "white", textAlign : "center", paddingTop : 10}}>Current Answer: {"\n\n"}{this.state.answer10}</Text>
       </View>
       <View style={{marginBottom: 35, flex: 1,marginTop: 10, alignItems: 'center'}}>
         <Image 

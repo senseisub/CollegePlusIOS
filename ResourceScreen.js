@@ -90,7 +90,7 @@ class ResourceScreen extends Component{
               We want you to be successful ! {'\n\n'}
             </Text>
             <Text style = {{color: 'white', fontSize: 15, textAlign: 'center', maxWidth: screenWidth * .8, lineHeight : 24, fontFamily : "Quicksand"}}>
-            Working hard in school can pay off in the long run! This why we want you to have all the resources possible to help you be successful! This page is split up by categories like SAT advice, scholarships, studying hacks, resume help, and other important dates. If you are a senior you'll want to scroll down to the important dates section to learn more about when dates are due.
+            Working hard in school can pay off in the long run! This is why we want you to have all the resources possible to help you be successful! This page is split up by categories like SAT advice, scholarships, studying hacks, resume help, and other important dates. If you are a senior you'll want to scroll down to the important dates section to learn more about when dates are due.
             </Text>
           </Text>
         </View>
@@ -373,7 +373,7 @@ class ResourceScreen extends Component{
               Scholarships {'\n\n'}
             </Text>
             <Text style = {{color: 'white', fontSize: 15, textAlign: 'center', maxWidth: screenWidth * .8, lineHeight : 24, fontFamily : "Quicksand"}}>
-              <Text>How much you pay for college can make a significant impact on what colleges you apply to and ultimately what you choose. Here at CollegePlus, we recommend that you always apply no matter what you think the net price maybe because you never know what financial opportunities you will have to support you. Below are some tips for finding and applying for scholarships.</Text>
+              <Text>How much you pay for college can make a significant impact on what colleges you apply to and ultimately what you choose. Here at CollegePlus, we recommend that you always apply no matter what you think the net price may be because you never know what financial opportunities you will have to support you. Below are some tips for finding and applying for scholarships.</Text>
               <Text>-- Look for local scholarships at your school, banks, credit unions, insurance companies, law firms. Often times, there are plenty of memorial scholarships offered in local communities. All you have to do is look.{'\n\n'}</Text>
               <Text>-- Find your niche, once you know what it is you want to study look for scholarships that are specific to you. An example is a scholarship for women wishing to study tech. {'\n\n'}</Text> 
               <Text>-- When you are looking at colleges, make sure you understand the difference between need-based aid and merit-based aid. If your family is in a lower-income bracket your best bet is to apply to schools that offer only need-based aid.  Need-based aid schools will most likely provide you with the most financial support. {'\n\n'}</Text>            

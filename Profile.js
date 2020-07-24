@@ -719,7 +719,7 @@ class ProfileScreen extends Component{
         else if(value.charAt(i) == ' '){
           containsSpace = true;
         }
-        else if(tempUsername.charAt(i) == '.' && indexOfDot == 0){
+        else if(tempUsername.charAt(i) == '.'){
             indexOfDot = i;
         }
     }

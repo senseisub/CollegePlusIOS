@@ -367,7 +367,7 @@ class CollegePickerScreen extends Component{
           Don't know what college you want to attend?{'\n'}
           Don't know what college best fits your personality?{'\n'} </Text>
           <Text style = {{color: 'white', fontSize: 18, textAlign: 'center', maxWidth: 375, fontFamily: 'Montserrat-Bold'}}> CollegePicker</Text>
-          <Text style = {{color: 'white', fontSize: 18, textAlign: 'center', maxWidth: 375, fontFamily: 'Montserrat-Medium'}}> recommends you a college based on your personality!{'\n'}
+          <Text style = {{color: 'white', fontSize: 18, textAlign: 'center', maxWidth: 375, fontFamily: 'Montserrat-Medium'}}> recommends you a college based on your desires!{'\n'}
         </Text>
       </Text>
     </View>
@@ -382,7 +382,7 @@ class CollegePickerScreen extends Component{
         <TextInput label='Ex. 30'
                 ref = {this.smallRef}
                 // value={this.state.text}
-                style={{ height: 60, borderColor: mainColors[Math.floor(Math.random() * 2)], borderWidth: 4, borderRadius: 15, width : screenWidth * .4, backgroundColor: "#fff", textAlign: 'center', fontFamily: 'Montserrat-Medium'}}
+                style={{ height: 60, borderColor: mainColors[Math.floor(Math.random() * 2)], borderWidth: 4, borderRadius: 15, width : screenWidth * .4, backgroundColor: "#fff", textAlign: 'center', fontFamily: 'Montserrat-Medium', color : "black", textColor : "black"}}
                 onChangeText={(value) => {this.setState({userCity: value})}}
                 />
       </View>
@@ -488,7 +488,7 @@ class CollegePickerScreen extends Component{
     </View>
     <View style = {styles.dropDownView}>
       <Text style ={styles.TextLabel}> Do you want to go to a Historically Black College ? </Text>
-      <Text style = {styles.littleText}>Historically black colleges and universities, or HBCUs, are schools that were founded on the belief that everyone deserves access to a college education. HBCUS provide a first rate education while providing a diverse and inclusive classroom. </Text>
+      <Text style = {styles.littleText}>Historically black colleges and universities, or HBCUs, are schools that were founded on the belief that everyone deserves access to a college education. HBCUs provide a first rate education while providing a diverse and inclusive classroom. </Text>
       <Dropdown label=''
       value = {hbcu[0].value}
       ref = {this.smallRef}
@@ -505,7 +505,7 @@ class CollegePickerScreen extends Component{
       />
     </View>
     <View style = {styles.dropDownView}>
-      <Text style ={styles.TextLabel}> Do you want to go to all womens college? </Text> 
+      <Text style ={styles.TextLabel}> Do you want to go to all women's college? </Text> 
       <Text style = {styles.littleText}>All women colleges provide a space where women are supported and represented in all occupations and areas of study and where students can build a network of supportive female peers.</Text>
       <Dropdown label=''
       value = {allWomens[0].value}
@@ -524,7 +524,7 @@ class CollegePickerScreen extends Component{
     </View>
     <View style = {styles.dropDownView}>
       <Text style ={styles.TextLabel}> How big do you want your college to be ? </Text>
-      <Text style = {styles.littleText}>Smaller colleges or universities will most likely offer smaller classes and a better chance to get to know you peers while bigger colleges or universities will offer more opportunities but may prove more of a challenge when getting to know your peers.</Text>
+      <Text style = {styles.littleText}>Smaller colleges or universities will most likely offer smaller classes and a better chance to get to know your peers while bigger colleges or universities will offer more opportunities but may prove more of a challenge when getting to know your peers.</Text>
       <Dropdown label=''
       value = {universitySize[1].value}
       ref = {this.smallRef}
@@ -545,7 +545,7 @@ class CollegePickerScreen extends Component{
       <TextInput label='Ex. 30'
               ref = {this.smallRef}
               // value={this.state.text}
-              style={{ height: 60, borderColor: mainColors[Math.floor(Math.random() * 2)], borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", textAlign: 'center', fontFamily: 'Montserrat-Medium'}}
+              style={{ height: 60, borderColor: mainColors[Math.floor(Math.random() * 2)], borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", textAlign: 'center', fontFamily: 'Montserrat-Medium', color : "black", textColor : "black"}}
               onChangeText={(value) => {this.setState({useract: value})}}
               />
     </View>
@@ -554,7 +554,7 @@ class CollegePickerScreen extends Component{
       <TextInput label='Ex. 1290'
               ref = {this.smallRef}
               // value={this.state.text}
-              style={{ height: 60, borderColor: mainColors[Math.floor(Math.random() * 2)], borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", textAlign: 'center', fontFamily: 'Montserrat-Medium'}}
+              style={{ height: 60, borderColor: mainColors[Math.floor(Math.random() * 2)], borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", textAlign: 'center', fontFamily: 'Montserrat-Medium', color : "black", textColor : "black"}}
               onChangeText={(value) => {this.setState({usersat: value})}}
               />
     </View>

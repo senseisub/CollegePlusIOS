@@ -317,8 +317,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[0]}
@@ -502,8 +502,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[1]}
@@ -687,8 +687,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[2]}
@@ -872,8 +872,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[3]}
@@ -1057,8 +1057,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[4]}
@@ -1242,8 +1242,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[5]}
@@ -1427,8 +1427,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[6]}
@@ -1612,8 +1612,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[7]}
@@ -1797,8 +1797,8 @@ class CollegeRecommendations extends Component{
                                 size= {15}
                             />
                         </Text>
-                        <Text style = {styles.costOfAttendence}>
-                            Average cost of attendence for your household income:
+                        <Text style = {styles.costOfAttendance}>
+                            Average cost of attendance for your household income:
                         </Text>
                         <Text style = {styles.bigPrice}>
                             ${this.state.collegeprices[8]}
@@ -2062,7 +2062,7 @@ const styles = StyleSheet.create({
       textAlign: 'center', 
       fontFamily: 'Montserrat-Medium'
   },
-  costOfAttendence : {
+  costOfAttendance : {
       color: 'white',
       fontSize: 14,
       textAlign: 'center',

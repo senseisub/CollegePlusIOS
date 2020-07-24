@@ -544,7 +544,7 @@ class GPACalculatorScreen extends Component{
             <TextInput label=''
             ref = {this.smallRef}
             // value={this.state.text}
-            style={{ height: 60, borderColor: '#0099cc', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff"}}
+            style={{ height: 60, borderColor: '#0099cc', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", color : "black", textColor : "black", textAlign: 'center'}}
             onChangeText={(value) => this.onChangeHandler2(value)}
             />
           </View>
@@ -552,6 +552,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Grade </Text>
             <Dropdown label=''
             ref = {this.grade1Ref}
+            value = {grades[1].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({grade1: value})}}
             data={grades}
@@ -569,6 +570,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Credit </Text>
             <Dropdown label=''
             ref = {this.credit1Ref}
+            value = {credits[0].value}
             // value={this.state.text}
             onChangeText = {(value) => this.setCredit1(value)}
             data={credits}
@@ -585,6 +587,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Class Type </Text>
             <Dropdown label=''
             ref = {this.class1Ref}
+            value = {classType[4].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({classType1: value})}}
             data={classType}
@@ -612,7 +615,7 @@ class GPACalculatorScreen extends Component{
             <TextInput label=''
             ref = {this.smallRef}
             // value={this.state.text}
-            style={{ height: 60, borderColor: 'tomato', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff"}}
+            style={{ height: 60, borderColor: 'tomato', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", color : "black", textColor : "black", textAlign: 'center'}}
             onChangeText={(value) => this.onChangeHandler2(value)}
             />
           </View>
@@ -620,6 +623,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Grade </Text>
             <Dropdown label=''
             ref = {this.grade2Ref}
+            value = {grades[1].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({grade2: value})}}
             data={grades}
@@ -637,6 +641,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Credit </Text>
             <Dropdown label=''
             ref = {this.credit2Ref}
+            value = {credits[0].value}
             // value={this.state.text}
             onChangeText = {(value) => this.setCredit2(value)}
             data={credits}
@@ -652,6 +657,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Class Type </Text>
             <Dropdown label=''
             ref = {this.class2Ref}
+            value = {classType[4].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({classType2: value})}}
             data={classType}
@@ -679,7 +685,7 @@ class GPACalculatorScreen extends Component{
             <TextInput label=''
             ref = {this.smallRef}
             // value={this.state.text}
-            style={{ height: 60, borderColor: '#0099cc', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff"}}
+            style={{ height: 60, borderColor: '#0099cc', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", color : "black", textColor : "black", textAlign: 'center'}}
             onChangeText={(value) => this.onChangeHandler2(value)}
             />
           </View>
@@ -687,6 +693,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Grade </Text>
             <Dropdown label=''
             ref = {this.grade3Ref}
+            value = {grades[1].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({grade3: value})}}
             data={grades}
@@ -704,6 +711,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Credit </Text>
             <Dropdown label=''
             ref = {this.credit3Ref}
+            value = {credits[0].value}
             // value={this.state.text}
             onChangeText = {(value) => this.setCredit3(value)}
             data={credits}
@@ -719,6 +727,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Class Type </Text>
             <Dropdown label=''
             ref = {this.class3Ref}
+            value = {classType[4].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({classType3: value})}}
             data={classType}
@@ -746,7 +755,7 @@ class GPACalculatorScreen extends Component{
             <TextInput label='Ex. Algebra'
             ref = {this.smallRef}
             // value={this.state.text}
-            style={{ height: 60, borderColor: 'tomato', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff"}}
+            style={{ height: 60, borderColor: 'tomato', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", color : "black", textColor : "black", textAlign: 'center'}}
             onChangeText={(value) => this.onChangeHandler2(value)}
             />
           </View>
@@ -754,6 +763,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Grade </Text>
             <Dropdown label=''
             ref = {this.grade3Ref}
+            value = {grades[1].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({grade4: value})}}
             data={grades}
@@ -771,6 +781,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Credit </Text>
             <Dropdown label=''
             ref = {this.credit3Ref}
+            value = {credits[0].value}
             // value={this.state.text}
             onChangeText = {(value) => this.setCredit4(value)}
             data={credits}
@@ -786,6 +797,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Class Type </Text>
             <Dropdown label=''
             ref = {this.class3Ref}
+            value = {classType[4].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({classType4: value})}}
             data={classType}
@@ -813,7 +825,7 @@ class GPACalculatorScreen extends Component{
             <TextInput label='Ex. Algebra'
             ref = {this.smallRef}
             // value={this.state.text}
-            style={{ height: 60, borderColor: '#0099cc', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff"}}
+            style={{ height: 60, borderColor: '#0099cc', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", color : "black", textColor : "black", textAlign: 'center'}}
             onChangeText={(value) => this.onChangeHandler2(value)}
             />
           </View>
@@ -821,6 +833,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Grade </Text>
             <Dropdown label=''
             ref = {this.grade3Ref}
+            value = {grades[1].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({grade5: value})}}
             data={grades}
@@ -838,6 +851,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Credit </Text>
             <Dropdown label=''
             ref = {this.credit3Ref}
+            value = {credits[0].value}
             // value={this.state.text}
             onChangeText = {(value) => this.setCredit5(value)}
             data={credits}
@@ -853,6 +867,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Class Type </Text>
             <Dropdown label=''
             ref = {this.class3Ref}
+            value = {classType[4].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({classType3: value})}}
             data={classType}
@@ -880,7 +895,7 @@ class GPACalculatorScreen extends Component{
             <TextInput label='Ex. Algebra'
             ref = {this.smallRef}
             // value={this.state.text}
-            style={{ height: 60, borderColor: 'tomato', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff"}}
+            style={{ height: 60, borderColor: 'tomato', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", color : "black", textColor : "black", textAlign: 'center'}}
             onChangeText={(value) => this.onChangeHandler2(value)}
             />
           </View>
@@ -888,6 +903,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Grade </Text>
             <Dropdown label=''
             ref = {this.grade3Ref}
+            value = {grades[1].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({grade6: value})}}
             data={grades}
@@ -905,6 +921,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Credit </Text>
             <Dropdown label=''
             ref = {this.credit3Ref}
+            value = {credits[0].value}
             // value={this.state.text}
             onChangeText = {(value) => this.setCredit6(value)}
             data={credits}
@@ -920,6 +937,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Class Type </Text>
             <Dropdown label=''
             ref = {this.class3Ref}
+            value = {classType[4].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({classType6: value})}}
             data={classType}
@@ -947,7 +965,7 @@ class GPACalculatorScreen extends Component{
             <TextInput label='Ex. Algebra'
             ref = {this.smallRef}
             // value={this.state.text}
-            style={{ height: 60, borderColor: '#0099cc', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff"}}
+            style={{ height: 60, borderColor: '#0099cc', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", color : "black", textColor : "black", textAlign: 'center'}}
             onChangeText={(value) => this.onChangeHandler2(value)}
             />
           </View>
@@ -955,6 +973,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Grade </Text>
             <Dropdown label=''
             ref = {this.grade3Ref}
+            value = {grades[1].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({grade7: value})}}
             data={grades}
@@ -972,6 +991,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Credit </Text>
             <Dropdown label=''
             ref = {this.credit3Ref}
+            value = {credits[0].value}
             // value={this.state.text}
             onChangeText = {(value) => this.setCredit7(value)}
             data={credits}
@@ -987,6 +1007,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Class Type </Text>
             <Dropdown label=''
             ref = {this.class3Ref}
+            value = {classType[4].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({classType7: value})}}
             data={classType}
@@ -1014,7 +1035,7 @@ class GPACalculatorScreen extends Component{
             <TextInput label='Ex. Algebra'
             ref = {this.smallRef}
             // value={this.state.text}
-            style={{ height: 60, borderColor: 'tomato', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff"}}
+            style={{ height: 60, borderColor: 'tomato', borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", color : "black", textColor : "black", textAlign: 'center'}}
             onChangeText={(value) => this.onChangeHandler2(value)}
             />
           </View>
@@ -1022,6 +1043,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Grade </Text>
             <Dropdown label=''
             ref = {this.grade3Ref}
+            value = {grades[1].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({grade8: value})}}
             data={grades}
@@ -1039,6 +1061,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Credit </Text>
             <Dropdown label=''
             ref = {this.credit3Ref}
+            value = {credits[0].value}
             // value={this.state.text}
             onChangeText = {(value) => this.setCredit8(value)}
             data={credits}
@@ -1054,6 +1077,7 @@ class GPACalculatorScreen extends Component{
             <Text style ={styles.TextLabel}> Class Type </Text>
             <Dropdown label=''
             ref = {this.class3Ref}
+            value = {classType[4].value}
             // value={this.state.text}
             onChangeText = {(value) => {this.setState({classType8: value})}}
             data={classType}
