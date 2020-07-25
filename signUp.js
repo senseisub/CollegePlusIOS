@@ -107,7 +107,7 @@ class SignUpScreen extends Component{
       passwordError : {height: 0},
       valUser : false,
       valPassword : false,
-      passwordView : {height: 195, alignItems : 'center', marginTop : 5},
+      passwordView : {height: 205, alignItems : 'center', marginTop : 5},
       passwordView2 : {width: screenWidth*.7, alignItems: 'center', borderWidth: 4, borderColor : 'tomato', paddingBottom : 30, backgroundColor : "#000000", borderRadius : 15},
       loadingImage : {width: 0, height : 0},
       currentlyLoading : false,
@@ -483,13 +483,13 @@ class SignUpScreen extends Component{
     if(indexOfAt == 0 || indexOfDot == 0 || indexOfAt > indexOfDot || containsSpace){
         this.setState({usernameError : {height: 50, color: 'red', fontSize: 15}});
         this.setState({valUser : false});
-        this.setState({passwordView : {height: 195, alignItems : 'center', marginTop : 30}});
+        this.setState({passwordView : {height: 205, alignItems : 'center', marginTop : 30}});
     }
     else{
         this.setState({valUser : true});
         this.setState({usernameError : {height : 0}});
         this.setState({username : value});
-        this.setState({passwordView : {height: 195, alignItems : 'center', marginTop : 5}});
+        this.setState({passwordView : {height: 205, alignItems : 'center', marginTop : 5}});
     }
   }
 
@@ -519,13 +519,13 @@ class SignUpScreen extends Component{
         this.setState({valPassword : true});
         this.setState({password : value});
         this.setState({passwordView2 : {width: screenWidth*.7, alignItems: 'center', borderWidth: 4, borderColor : 'tomato', paddingBottom : 30, backgroundColor : "#000000", borderRadius : 15}});
-        this.setState({ passwordView : {height: 195, alignItems : 'center', marginTop : 5} });
+        this.setState({ passwordView : {height: 205, alignItems : 'center', marginTop : 5} });
     }
     else{
         this.setState({passwordError : {height : 30}})
         this.setState({valPassword : false});
         this.setState({passwordView2 : {width: screenWidth*.7, alignItems: 'center', borderWidth: 4, borderColor : 'tomato', paddingBottom : 30, backgroundColor : "#000000", borderRadius : 15}});
-        this.setState({ passwordView : {height: 225, alignItems : 'center', marginTop : 5} });
+        this.setState({ passwordView : {height: 235, alignItems : 'center', marginTop : 5} });
     }
   }
 
@@ -612,7 +612,7 @@ class SignUpScreen extends Component{
             </View>
             <View style = {this.state.passwordView}>
                 <Text style = {{textAlign : 'center', color : '#fff', fontSize : 18, paddingBottom : 10, fontFamily : "Montserrat-Medium"}}>
-                Password (1 special character and 1 number)
+                Password (1 special character, 1 number, and 8 characters long)
                 </Text>
                 <View style = {this.state.passwordError}>
                 <Text style = {styles.showText}>
