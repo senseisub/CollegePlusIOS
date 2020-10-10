@@ -26,7 +26,25 @@ import { Dropdown } from 'react-native-material-dropdown';
 import Icon from 'react-native-ionicons'
 //import Example from './dropdown';
 const mainColors = ['tomato', '#0099cc'];
+import admob, { MaxAdContentRating } from '@react-native-firebase/admob';
+import { InterstitialAd, RewardedAd, BannerAd, BannerAdSize, TestIds } from '@react-native-firebase/admob';
+InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
+RewardedAd.createForAdRequest(TestIds.REWARDED);
+admob()
+  .setRequestConfiguration({
+    // Update all future requests suitable for parental guidance
+    maxAdContentRating: MaxAdContentRating.PG,
 
+    // Indicates that you want your content treated as child-directed for purposes of COPPA.
+    tagForChildDirectedTreatment: true,
+
+    // Indicates that you want the ad request to be handled in a
+    // manner suitable for users under the age of consent.
+    tagForUnderAgeOfConsent: true,
+  })
+  .then(() => {
+    // Request config successfully set!
+  });
 class PickerScreen extends Component {
   constructor(props) {
     super(props);
@@ -147,6 +165,19 @@ class PickerScreen extends Component {
           College<Text style = {{color : 'tomato'}}>Plus™</Text>
         </Text>
       </View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
       </ScrollView>
     </>
   );

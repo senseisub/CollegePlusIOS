@@ -29,6 +29,7 @@ import { TextInput } from 'react-native-paper';
 import {Dimensions } from "react-native";
 const screenWidth = Math.round(Dimensions.get('window').width);
 const screenHeight = Math.round(Dimensions.get('window').height);
+import auth from '@react-native-firebase/auth';
 import appleAuth, {
   AppleButton,
   AppleAuthRequestOperation,
@@ -36,6 +37,16 @@ import appleAuth, {
   AppleAuthCredentialState,
 } from '@invertase/react-native-apple-authentication';
 GoogleSignin.configure();
+// GoogleSignin.configure({
+  // scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
+  // webClientId: '224517218415-g481q73mv6i9e6sao3p0362ic4tf5368.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
+  // offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
+  // hostedDomain: '', // specifies a hosted domain restriction
+  // loginHint: '', // [iOS] The user's ID, or email address, to be prefilled in the authentication UI if possible. [See docs here](https://developers.google.com/identity/sign-in/ios/api/interface_g_i_d_sign_in.html#a0a68c7504c31ab0b728432565f6e33fd)
+  // forceConsentPrompt: true, // [Android] if you want to show the authorization prompt at each login.
+  // accountName: '', // [Android] specifies an account name on the device that should be used
+  // iosClientId: '224517218415-aaf1cjoptn038gnnu7u77s5nt9s3ispm.apps.googleusercontent.com', // [iOS] optional, if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
+// });
 // GoogleSignin.configure({
 //   scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
   // webClientId: '224517218415-g481q73mv6i9e6sao3p0362ic4tf5368.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
@@ -179,7 +190,9 @@ class ProfileScreen extends Component{
   signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
+      const {idToken, accessToken} = await GoogleSignin.signIn();
+      const credential = auth.GoogleAuthProvider.credential(idToken, accessToken);
+      auth().signInWithCredential(credential);
       this.setState({userInfo});
       this.googleSignIn();
     } catch (error) {
@@ -1306,7 +1319,7 @@ class ProfileScreen extends Component{
         Log Into College<Text style={{color : 'tomato'}}>Plus</Text> {'\n'}
         </Text>
       </View>
-      <View style = {{alignItems: "center", height: 120}}>
+      {/* <View style = {{alignItems: "center", height: 120}}>
         <GoogleSigninButton
         style={{ width: 192, height: 48 }}
         size={GoogleSigninButton.Size.Wide}
@@ -1316,7 +1329,7 @@ class ProfileScreen extends Component{
         <Text style = {{color :"white", width : screenWidth * .8, textAlign :'center', paddingTop : 5}}>
           By clicking this button you agree to our <Text onPress = {() => this._goToURL("https://collegeplus.us/TermsOfService")} style = {{color : "#0099cc"}}>Terms Of Service</Text> and <Text onPress = {() => this._goToURL("https://collegeplus.us/PrivacyPolicy")} style = {{color : "#0099cc"}}>Privacy Policies</Text>
         </Text>      
-      </View>
+      </View> */}
       <View style = {{alignItems: "center", height: 120}}>
         <AppleButton
           buttonStyle={AppleButton.Style.WHITE}
@@ -1346,7 +1359,7 @@ class ProfileScreen extends Component{
       </View>
       <View style = {this.state.incorrectStyle = this.state.incorrect? {marginTop : 30} : {height : 0, width : 0}}>
         <Text style = {{color : 'red', textAlign: 'center'}}>
-          Incorrect Password/Username
+          Incorrect Password/Email
         </Text>
       </View>
       <View style = {{alignItems: "center", marginTop: 30, marginBottom : 30, paddingBottom : 100, borderRadius : 15}}>
@@ -1354,18 +1367,19 @@ class ProfileScreen extends Component{
           <View style = {{height: 100, marginTop : 40}}>
             <View>
               <Text style = {{textAlign : 'center', color : '#fff', fontSize : 18, paddingBottom : 10, fontFamily : "Montserrat-Medium"}}>
-                Username
+                Email
               </Text>
             </View>
             <View style = {this.state.usernameError}>
               <Text style = {styles.showText}>
-                    Invalid Username
+                    Invalid Email
                 </Text>
             </View>
             <View>
               <TextInput
               style={{height : 30, width: 175, borderRadius: 5, backgroundColor: "#fff", textAlign: 'center'}}
               onChangeText = {(value) => this.handleUsername(value)}
+              keyboardType = "email-address"
               />
             </View>
           </View>

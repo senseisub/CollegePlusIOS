@@ -547,6 +547,7 @@ class CollegePickerScreen extends Component{
               // value={this.state.text}
               style={{ height: 60, borderColor: mainColors[Math.floor(Math.random() * 2)], borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", textAlign: 'center', fontFamily: 'Montserrat-Medium', color : "black", textColor : "black"}}
               onChangeText={(value) => {this.setState({useract: value})}}
+              keyboardType = "numeric"
               />
     </View>
     <View  style = {styles.dropDownView}>
@@ -556,6 +557,7 @@ class CollegePickerScreen extends Component{
               // value={this.state.text}
               style={{ height: 60, borderColor: mainColors[Math.floor(Math.random() * 2)], borderWidth: 4, borderRadius: 15, minWidth: 150, maxWidth: 200, backgroundColor: "#fff", textAlign: 'center', fontFamily: 'Montserrat-Medium', color : "black", textColor : "black"}}
               onChangeText={(value) => {this.setState({usersat: value})}}
+              keyboardType = "numeric"
               />
     </View>
     <View style = {styles.dropDownView}>

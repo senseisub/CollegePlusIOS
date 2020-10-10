@@ -607,6 +607,7 @@ class SignUpScreen extends Component{
                 <TextInput
                 style={{height : 30, width: 175, borderRadius: 5, backgroundColor: "#fff", textAlign: 'center'}}
                 onChangeText = {(value) => this.handleUsername(value)}
+                keyboardType = "email-address"
                 />
                 </View>
             </View>

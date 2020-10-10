@@ -7,7 +7,7 @@
  */
 import * as React from 'react';
 import {useState, Component} from 'react';
-import { Text, View, ScrollView, StyleSheet, StatusBar, Platform, TouchableOpacity, Picker, AppNavigator, StackNavigator, TextInput, Label, Linking } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, StatusBar, Platform, TouchableOpacity, Picker, AppNavigator, StackNavigator, TextInput, Label, Linking , Switch} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -24,8 +24,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import { Dropdown } from 'react-native-material-dropdown';
 import Icon from 'react-native-ionicons'
 import CookieManager from 'react-native-cookies';
-
-
+// import { Switch } from 'react-native-paper';
+const mainColors = ['tomato', '#888888'];
 
 class GPACalculatorScreen extends Component{
 
@@ -129,7 +129,10 @@ class GPACalculatorScreen extends Component{
       clickedin : false,
       username : "",
       password : "s",
-      isLoggedIn : false
+      isLoggedIn : false,
+      isWeightedSwitch : false,
+      isSwitchOn : false,
+      index : 1
 
     };
   }
@@ -238,6 +241,8 @@ class GPACalculatorScreen extends Component{
         classType: this.state.classType1,
         clickedBy: this.state.clickedBy1
       }
+      this.setState({weighted : this.state.isSwitchOn});
+      console.log("SWITCH: " + this.state.isSwitchOn);
       this.calcGPA1(temp);
       this.setState({gradePoints1: temp.gradePoint});
       this.setState({credit1: temp.credits});
@@ -257,6 +262,7 @@ class GPACalculatorScreen extends Component{
         classType: this.state.classType2,
         clickedBy: this.state.clickedBy2
       }
+      this.setState({weighted : this.state.isSwitchOn});
       this.calcGPA1(temp);
       this.setState({gradePoints2: temp.gradePoint});
       this.setState({credit2: temp.credits});
@@ -276,6 +282,7 @@ class GPACalculatorScreen extends Component{
         classType: this.state.classType3,
         clickedBy: this.state.clickedBy3
       }
+      this.setState({weighted : this.state.isSwitchOn});
       this.calcGPA1(temp);
       this.setState({gradePoints3: temp.gradePoint});
       this.setState({credit3: temp.credits});
@@ -295,6 +302,7 @@ class GPACalculatorScreen extends Component{
         classType: this.state.classType4,
         clickedBy: this.state.clickedBy4
       }
+      this.setState({weighted : this.state.isSwitchOn});
       this.calcGPA1(temp);
       this.setState({gradePoints4: temp.gradePoint});
       this.setState({credit4: temp.credits});
@@ -315,6 +323,7 @@ class GPACalculatorScreen extends Component{
         classType: this.state.classType5,
         clickedBy: this.state.clickedBy5
       }
+      this.setState({weighted : this.state.isSwitchOn});
       this.calcGPA1(temp);
       this.setState({gradePoints5: temp.gradePoint});
       this.setState({credit5: temp.credits});
@@ -335,6 +344,7 @@ class GPACalculatorScreen extends Component{
         classType: this.state.classType6,
         clickedBy: this.state.clickedBy6
       }
+      this.setState({weighted : this.state.isSwitchOn});
       this.calcGPA1(temp);
       this.setState({gradePoints6: temp.gradePoint});
       this.setState({credit6: temp.credits});
@@ -355,6 +365,7 @@ class GPACalculatorScreen extends Component{
         classType: this.state.classType7,
         clickedBy: this.state.clickedBy7
       }
+      this.setState({weighted : this.state.isSwitchOn});
       this.calcGPA1(temp);
       this.setState({gradePoints7: temp.gradePoint});
       this.setState({credit7: temp.credits});
@@ -375,6 +386,7 @@ class GPACalculatorScreen extends Component{
         classType: this.state.classType8,
         clickedBy: this.state.clickedBy8
       }
+      this.setState({weighted : this.state.isSwitchOn});
       this.calcGPA1(temp);
       this.setState({gradePoints8: temp.gradePoint});
       this.setState({credit8: temp.credits});
@@ -422,8 +434,8 @@ class GPACalculatorScreen extends Component{
 
   calcGPA1(obj){
       if(obj.clickedBy == true){
-          obj.grade = 0;
-          // obj.credits = 0;
+        obj.gradePoint = 0;
+        // obj.credits = 0;
       }
       obj.clickedBy = true;
       for(var i = 0; i< this.state.gradeValues.length; i++){
@@ -531,6 +543,18 @@ class GPACalculatorScreen extends Component{
     <ScrollView style ={styles.pickerPage}
       contentContainerStyle = {{alignItems: 'center'}}
     >
+      <View style = {{flexDirection : "row", marginTop : 10}}>
+        <Text style = {{color : "#FFFFFF", marginRight : 10, paddingTop : 5, fontFamily : "Montserrat-Bold"}}>Unweighted</Text>
+        <Switch
+        trackColor={{ false: "#000000", true: "tomato" }}
+        thumbColor={this.state.isSwitchOn ? "#000000" : "#000000"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={() => {this.setState({isSwitchOn : !this.state.isSwitchOn}); console.log(this.state.isSwitchOn); if(this.state.index == 0){this.setState({index : 1})}else{this.setState({index : 0})}}}
+        value={this.state.isSwitchOn}
+      />
+        {/* <Switch value={this.state.isSwitchOn} onValueChange={() => {this.setState({isSwitchOn : !this.state.isSwitchOn}); console.log(this.state.isSwitchOn); if(this.state.index == 0){this.setState({index : 1})}else{this.setState({index : 0})}}} color = {mainColors[this.state.index]} style = {{shadowColor : "#FFFFFF", tintColor : "#FFFFFF", color : "#FFFFFF", textShadowColor : "#FFFFFF", textDecorationColor : "#FFFFFF"}} tintColor = {mainColors[Math.floor(Math.random() * 2)]} theme = {{dark : false, colors: {primary: '#FFFFFF', accent: '#FFFFFF', disabled : "#FFFFFF"}}} thumbTintColor = "#FFFFFF"/> */}
+        <Text style = {{color : "#FFFFFF", marginLeft : 10, paddingTop : 5, fontFamily : "Montserrat-Bold"}}>Weighted</Text>
+    </View>
     <View style = {{flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', maxWidth: 350, marginTop: 0}}>
       <View style ={{flex: 1, flexDirection: 'column', borderBottomWidth: 1, borderBottomColor: 'white', paddingBottom: 30, alignItems: 'center'}}>
         <View><Text style ={styles.ClassTitle}> Class 1 </Text></View>
@@ -589,7 +613,7 @@ class GPACalculatorScreen extends Component{
             ref = {this.class1Ref}
             value = {classType[4].value}
             // value={this.state.text}
-            onChangeText = {(value) => {this.setState({classType1: value})}}
+            onChangeText = {(value) => { this.setClass1(value)}}
             data={classType}
             containerStyle = {{backgroundColor: '#0099cc', borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, maxWidth: 200, minWidth: 150, alignItems: 'center'}}
             baseColor = "#000000"
@@ -659,7 +683,7 @@ class GPACalculatorScreen extends Component{
             ref = {this.class2Ref}
             value = {classType[4].value}
             // value={this.state.text}
-            onChangeText = {(value) => {this.setState({classType2: value})}}
+            onChangeText = {(value) => { this.setClass2(value)}}
             data={classType}
             containerStyle = {{backgroundColor: '#ff6347', borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, maxWidth: 200, minWidth: 150, alignItems: 'center'}}
             baseColor = "#000000"
@@ -729,7 +753,7 @@ class GPACalculatorScreen extends Component{
             ref = {this.class3Ref}
             value = {classType[4].value}
             // value={this.state.text}
-            onChangeText = {(value) => {this.setState({classType3: value})}}
+            onChangeText = {(value) => { this.setClass3(value)}}
             data={classType}
             containerStyle = {{backgroundColor: '#0099cc', borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, maxWidth: 200, minWidth: 150, alignItems: 'center'}}
             baseColor = "#000000"
@@ -799,7 +823,7 @@ class GPACalculatorScreen extends Component{
             ref = {this.class3Ref}
             value = {classType[4].value}
             // value={this.state.text}
-            onChangeText = {(value) => {this.setState({classType4: value})}}
+            onChangeText = {(value) => { this.setClass4(value)}}
             data={classType}
             containerStyle = {{backgroundColor: '#ff6347', borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, maxWidth: 200, minWidth: 150, alignItems: 'center'}}
             baseColor = "#000000"
@@ -869,7 +893,7 @@ class GPACalculatorScreen extends Component{
             ref = {this.class3Ref}
             value = {classType[4].value}
             // value={this.state.text}
-            onChangeText = {(value) => {this.setState({classType3: value})}}
+            onChangeText = {(value) => { this.setClass5(value)}}
             data={classType}
             containerStyle = {{backgroundColor: '#0099cc', borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, maxWidth: 200, minWidth: 150, alignItems: 'center'}}
             baseColor = "#000000"
@@ -939,7 +963,7 @@ class GPACalculatorScreen extends Component{
             ref = {this.class3Ref}
             value = {classType[4].value}
             // value={this.state.text}
-            onChangeText = {(value) => {this.setState({classType6: value})}}
+            onChangeText = {(value) => { this.setClass6(value)}}
             data={classType}
             containerStyle = {{backgroundColor: '#ff6347', borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, maxWidth: 200, minWidth: 150, alignItems: 'center'}}
             baseColor = "#000000"
@@ -1009,7 +1033,7 @@ class GPACalculatorScreen extends Component{
             ref = {this.class3Ref}
             value = {classType[4].value}
             // value={this.state.text}
-            onChangeText = {(value) => {this.setState({classType7: value})}}
+            onChangeText = {(value) => { this.setClass7(value)}}
             data={classType}
             containerStyle = {{backgroundColor: '#0099cc', borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, maxWidth: 200, minWidth: 150, alignItems: 'center'}}
             baseColor = "#000000"
@@ -1079,7 +1103,7 @@ class GPACalculatorScreen extends Component{
             ref = {this.class3Ref}
             value = {classType[4].value}
             // value={this.state.text}
-            onChangeText = {(value) => {this.setState({classType8: value})}}
+            onChangeText = {(value) => { this.setClass8(value)}}
             data={classType}
             containerStyle = {{backgroundColor: '#ff6347', borderRadius: 15, textColor: '#000000', borderBottomColor: 'transparent', minHeight: 60, maxWidth: 200, minWidth: 150, alignItems: 'center'}}
             baseColor = "#000000"
@@ -1175,13 +1199,15 @@ const styles = StyleSheet.create({
   TextLabel: {
     color: "#fff",
     marginBottom: 10,
-    fontSize: 16
+    fontSize: 16,
+    fontFamily : "Quicksand"
   },
   ClassTitle: {
     color: "white",
     fontSize: 24,
     fontWeight: '400',
-    marginTop: 15
+    marginTop: 15,
+    fontFamily: "Montserrat-Medium"
   }
 //   scrollView: {
 //     backgroundColor: 'red',

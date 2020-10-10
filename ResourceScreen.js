@@ -28,7 +28,25 @@ const screenWidth = Math.round(Dimensions.get('window').width);
 import { WebView } from "react-native-webview";
 import YoutubePlayer from 'react-native-youtube-iframe';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import admob, { MaxAdContentRating } from '@react-native-firebase/admob';
+import { InterstitialAd, RewardedAd, BannerAd, BannerAdSize, TestIds } from '@react-native-firebase/admob';
+InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
+RewardedAd.createForAdRequest(TestIds.REWARDED);
+admob()
+  .setRequestConfiguration({
+    // Update all future requests suitable for parental guidance
+    maxAdContentRating: MaxAdContentRating.PG,
 
+    // Indicates that you want your content treated as child-directed for purposes of COPPA.
+    tagForChildDirectedTreatment: true,
+
+    // Indicates that you want the ad request to be handled in a
+    // manner suitable for users under the age of consent.
+    tagForUnderAgeOfConsent: true,
+  })
+  .then(() => {
+    // Request config successfully set!
+  });
 class ResourceScreen extends Component{
 
   constructor(props) {
@@ -94,13 +112,26 @@ class ResourceScreen extends Component{
             </Text>
           </Text>
         </View>
-        <View style = {{justifyContent: 'center', alignItems: 'center'}}>
+        <View style = {{justifyContent: 'center', alignItems: 'center', marginTop : 20}}>
           <Image style = {{width: screenWidth * .7, height: screenWidth * .7}} source={{uri: "https://media.giphy.com/media/L0O3TQpp0WnSXmxV8p/giphy-downsized.gif"}} />
         </View>
       </View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
       <View style = {{ marginBottom : 50, marginTop : 30}}>
         <View style = {{justifyContent: 'center', alignItems: 'center', marginBottom : 15}}>
-            <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center'}}>
+            <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center', marginTop : 20}}>
               <Text style = {{color: 'white', fontSize: 24, textAlign: 'center', maxWidth: 375, fontFamily : "Montserrat-Medium"}}>
                 Important Dates ! {'\n\n'}
               </Text>
@@ -287,9 +318,22 @@ class ResourceScreen extends Component{
           </View>
         </View>
       </View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
       <View>
         <View style = {{justifyContent: 'center', alignItems: 'center', marginBottom : 50}}>
-          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center'}}>
+          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center', marginTop : 20}}>
             <Text style = {{color: 'white', fontSize: 24, textAlign: 'center', maxWidth: 375, fontFamily : "Montserrat-Medium"}}>
                 SAT Tips and Tricks {'\n\n'}
             </Text>
@@ -322,10 +366,26 @@ class ResourceScreen extends Component{
         />
         </View>
       </View>
+      <View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
+      </View>
+
       <View style = {{alignItems : 'center', marginBottom : 50}}>
         <View style = {{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center'}}>
-            <Text style = {{color: 'white', fontSize: 24, textAlign: 'center', maxWidth: 375, fontFamily : "Montserrat-Medium"}}>
+          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center', marginTop : 20}}>
+            <Text style = {{color: 'white', fontSize: 24, textAlign: 'center', maxWidth: 375, fontFamily : "Montserrat-Medium", marginTop : 20}}>
               How to improve my score? {'\n\n'}
             </Text>
             <Text style = {{color: 'white', fontSize: 15, textAlign: 'center', maxWidth: screenWidth * .8, lineHeight : 24, fontFamily : "Quicksand"}}>
@@ -348,9 +408,22 @@ class ResourceScreen extends Component{
           <TouchableOpacity style = {{backgroundColor : '#0099cc', maxWidth : screenWidth * .7, padding : 16, borderRadius : 15}}><Text style= {{textAlign : 'center', fontFamily : "Montserrat-Medium"}}>Crush the Essay</Text></TouchableOpacity>
         </View>
       </View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
       <View style = {{alignItems : 'center', marginBottom : 50}}>
         <View style = {{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center'}}>
+          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center', marginTop : 20}}>
             <Text style = {{color: 'white', fontSize: 24, textAlign: 'center', maxWidth: 375, fontFamily : "Montserrat-Medium"}}>
             Do I have to use my SAT scores? {'\n\n'}
             </Text>
@@ -366,9 +439,22 @@ class ResourceScreen extends Component{
           <TouchableOpacity style = {{backgroundColor : '#0099cc', maxWidth : screenWidth * .7, padding : 16, borderRadius : 15}}><Text style= {{textAlign : 'center', fontFamily : "Montserrat-Medium"}}>Click here to see the best test optional schools</Text></TouchableOpacity>
         </View>
       </View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
       <View style = {{alignItems : 'center', marginBottom : 50}}>
         <View style = {{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center'}}>
+          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center', marginTop : 20}}>
             <Text style = {{color: 'white', fontSize: 24, textAlign: 'center', maxWidth: 375, fontFamily : "Montserrat-Medium"}}>
               Scholarships {'\n\n'}
             </Text>
@@ -389,9 +475,22 @@ class ResourceScreen extends Component{
           <Image style = {{width: screenWidth * .7, height: screenWidth * .7, borderRadius : 25}} source={{uri: "https://media.giphy.com/media/JpG2A9P3dPHXaTYrwu/giphy.gif"}} />
         </View>
       </View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
       <View style = {{alignItems : 'center', marginBottom : 50}}>
         <View style = {{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center'}}>
+          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center', marginTop : 20}}>
             <Text style = {{color: 'white', fontSize: 24, textAlign: 'center', maxWidth: 375, fontFamily : "Montserrat-Medium"}}>
               Studying Hacks {'\n\n'}
             </Text>
@@ -464,9 +563,22 @@ class ResourceScreen extends Component{
           <Image style = {{width: screenWidth * .7, height: screenWidth * .7, borderRadius : 25}} source={{uri: "https://media.giphy.com/media/fhAwk4DnqNgw8/giphy.gif"}} />
         </View>
       </View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
       <View style = {{alignItems : 'center'}}>
         <View style = {{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center'}}>
+          <Text style = {{maxWidth: screenWidth * .8, alignItems: 'center', textAlign: 'center', marginTop : 20}}>
             <Text style = {{color: 'white', fontSize: 24, textAlign: 'center', maxWidth: 375, fontFamily : "Montserrat-Medium"}}>
                 Resume Help {'\n\n'}
             </Text>
@@ -484,6 +596,19 @@ class ResourceScreen extends Component{
           College<Text style = {{color : 'tomato'}}>Plus™</Text>
         </Text>
       </View>
+      <BannerAd
+      unitId="ca-app-pub-2209994521755973/5149618893"
+      size={BannerAdSize.FULL_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: false,
+      }}
+      onAdLoaded={() => {
+        console.log('Advert loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        // console.error('Advert failed to load: ', error);
+      }}
+    />
     </ScrollView>
   );
 }
